@@ -12,6 +12,7 @@ public class LoadMap : MonoBehaviour
     [SerializeField] private AudioSource PacStudentAudio;
     [SerializeField] private AudioClip[] backgroundAudioClips;
     [SerializeField] private AudioClip[] PacStudentAudioClips;
+    [SerializeField] private Camera Camera;
     public Animator PacStudentController;
     private Vector3 startPos;
     private Vector3 endPos;
@@ -167,6 +168,8 @@ public class LoadMap : MonoBehaviour
                         }
                         break;
                 }
+
+        Camera.orthographicSize = row / 2 + 3;
 
         PacStudent.position = new Vector3(1 - col / 2, row / 2 - 1, 0.0f);
         speed = 1.0f;

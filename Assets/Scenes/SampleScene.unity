@@ -221,13 +221,13 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_GateFitMode: 4
+  m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 50.000008
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -242,9 +242,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991463
   orthographic: 1
-  orthographic size: 16.285208
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -252,10 +252,10 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 0
+  m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
@@ -474,6 +474,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0437eb1c33c03444195f815946b3bbd5, type: 3}
   - {fileID: 8300000, guid: 687c407ddee066741a450bbba0183a79, type: 3}
   - {fileID: 8300000, guid: 306a5d611cca11341841655a8a9d1a9e, type: 3}
+  Camera: {fileID: 519420031}
   PacStudentController: {fileID: 1916175852}
 --- !u!1 &1916175850 stripped
 GameObject:
