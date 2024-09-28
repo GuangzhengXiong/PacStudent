@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -3134663835583138537
     second: Ghosts_scared_1
+  - first:
+      213: -4824351679726458833
+    second: Ghosts_scared_2
+  - first:
+      213: 4194086813805020565
+    second: Ghosts_scared_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -179,8 +185,8 @@ TextureImporter:
       name: Ghosts_scared_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 31
+        x: 159
+        y: 159
         width: 66
         height: 66
       alignment: 0
@@ -192,6 +198,48 @@ TextureImporter:
       bones: []
       spriteID: 715bdc589df6f74d0800000000000000
       internalID: -3134663835583138537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghosts_scared_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28685235b57c0db0800000000000000
+      internalID: -4824351679726458833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghosts_scared_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 31
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5958ff56cb3643a30800000000000000
+      internalID: 4194086813805020565
       vertices: []
       indices: 
       edges: []
@@ -209,6 +257,8 @@ TextureImporter:
     nameFileIdTable:
       Ghosts_scared_0: 7671379974407071015
       Ghosts_scared_1: -3134663835583138537
+      Ghosts_scared_2: -4824351679726458833
+      Ghosts_scared_3: 4194086813805020565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

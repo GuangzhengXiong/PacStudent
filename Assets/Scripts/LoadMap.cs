@@ -28,7 +28,7 @@ public class LoadMap : MonoBehaviour
          {2,2,2,2,2,1,5,3,3,0,4,0,0,0},
          {0,0,0,0,0,0,5,0,0,0,4,0,0,0},
          };
-        int row = 15, col = 14;
+        int row = levelMap1.GetLength(0), col = levelMap1.GetLength(1);
         int i, j;
         int[,] levelMap = new int[2 * row - 1, 2 * col];
         for (i = 0; i < 2 * row - 1; i++)
