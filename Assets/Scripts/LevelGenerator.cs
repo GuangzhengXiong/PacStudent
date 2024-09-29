@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LoadMap : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject[] sprite;
     [SerializeField] private GameObject[] Ghosts;
