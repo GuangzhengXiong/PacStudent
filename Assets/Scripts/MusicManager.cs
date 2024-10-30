@@ -24,13 +24,13 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (!backgroundAudio.isPlaying)
+        if (!backgroundAudio.isPlaying)
         {
             Time.timeScale = 1;
-            backgroundAudio.clip = backgroundAudioClips[1];
+            backgroundAudio.clip = Background_ghosts_normal;
             backgroundAudio.Play();
         }
-        if (Vector3.Distance(PacStudent.position, endPos) > 0.1f)
+        /*if (Vector3.Distance(PacStudent.position, endPos) > 0.1f)
         {
             PacStudent.position = Vector3.Lerp(startPos, endPos, (Time.time - startTime) / (Vector3.Distance(startPos, endPos) / speed));
             if (!PacStudentAudio.isPlaying && Time.timeScale != 0)

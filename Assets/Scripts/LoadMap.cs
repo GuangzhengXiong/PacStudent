@@ -6,18 +6,12 @@ using UnityEngine.UIElements;
 public class LoadMap : MonoBehaviour
 {
     [SerializeField] private GameObject[] sprite;
-    [SerializeField] private GameObject[] Ghosts;
     [SerializeField] private Transform PacStudent;
+    [SerializeField] private Transform[] Ghosts;
     [SerializeField] private Camera Camera;
     public Animator PacStudentController;
-    private Vector3 startPos;
-    private Vector3 endPos;
-    private float startTime;
-    private float speed;
     int[,] map;
     int row, col;
-    int direction;
-    int x, y;
 
     int[,] levelMap =
         {
@@ -168,10 +162,10 @@ public class LoadMap : MonoBehaviour
         Camera.orthographicSize = row / 2 + 3;
 
         PacStudent.position = new Vector3(1 - col / 2, row / 2 - 1, 0.0f);
-        speed = 1.0f;
-        direction = 0;
-        x = 1;
-        y = 1;
+        Ghosts[0].position = new Vector3(-1, 1, 0.0f);
+        Ghosts[1].position = new Vector3(1, 1, 0.0f);
+        Ghosts[2].position = new Vector3(-1, -1, 0.0f);
+        Ghosts[3].position = new Vector3(1, -1, 0.0f);
         //studentMove();
     }
 
