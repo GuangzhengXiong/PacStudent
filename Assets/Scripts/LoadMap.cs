@@ -8,10 +8,6 @@ public class LoadMap : MonoBehaviour
     [SerializeField] private GameObject[] sprite;
     [SerializeField] private GameObject[] Ghosts;
     [SerializeField] private Transform PacStudent;
-    [SerializeField] private AudioSource backgroundAudio;
-    [SerializeField] private AudioSource PacStudentAudio;
-    [SerializeField] private AudioClip[] backgroundAudioClips;
-    [SerializeField] private AudioClip[] PacStudentAudioClips;
     [SerializeField] private Camera Camera;
     public Animator PacStudentController;
     private Vector3 startPos;
@@ -176,38 +172,15 @@ public class LoadMap : MonoBehaviour
         direction = 0;
         x = 1;
         y = 1;
-        studentMove();
+        //studentMove();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!backgroundAudio.isPlaying)
-        {
-            Time.timeScale = 1;
-            backgroundAudio.clip = backgroundAudioClips[1];
-            backgroundAudio.Play();
-        }
-        if (Vector3.Distance(PacStudent.position, endPos) > 0.1f)
-        {
-            PacStudent.position = Vector3.Lerp(startPos, endPos, (Time.time - startTime) / (Vector3.Distance(startPos, endPos) / speed));
-            if (!PacStudentAudio.isPlaying && Time.timeScale != 0)
-            {
-                PacStudentAudio.clip = PacStudentAudioClips[0];
-                PacStudentAudio.Play();
-            }
-        }
-        else
-        {
-            PacStudent.position = endPos;
-            PacStudentController.SetTrigger("endMove");
-            PacStudentAudio.Stop();
-            direction = (direction + 1) % 4;
-            studentMove();
-        }
     }
 
-    void studentMove()
+    /*void studentMove()
     {
         startPos = PacStudent.position;
         startTime = Time.time;
@@ -282,5 +255,5 @@ public class LoadMap : MonoBehaviour
                 endPos = new Vector3(x - col / 2, row / 2 - y, 0.0f);
                 break;
         }
-    }
+    }*/
 }

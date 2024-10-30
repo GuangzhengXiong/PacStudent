@@ -8,6 +8,7 @@ TagManager:
   - Dot2
   - Dot3
   - Dot4
+  - Audio
   layers:
   - Default
   - TransparentFX
