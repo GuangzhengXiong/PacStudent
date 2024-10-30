@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dot1
+  - Dot2
+  - Dot3
+  - Dot4
   layers:
   - Default
   - TransparentFX
