@@ -36,7 +36,6 @@ public class LoadMap : MonoBehaviour
     void Start()
     {
         int i, j;
-        Time.timeScale = 0;
         row = levelMap.GetLength(0);
         col = levelMap.GetLength(1);
         map = new int[2 * row - 1, 2 * col];

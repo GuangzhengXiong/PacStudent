@@ -8,7 +8,7 @@ public class AnimatedBorder : MonoBehaviour
     private string[] tags = { "Dot1", "Dot2", "Dot3", "Dot4" };
     private int tagIndex = 0;
     private GameObject[] dots;
-    public float switchInterval = 1.0f;
+    public float switchInterval = 0.5f;
     public float x = 10.0f;
     public float y = 6.0f;
     private float timer;
