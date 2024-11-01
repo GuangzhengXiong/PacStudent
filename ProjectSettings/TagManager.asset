@@ -8,6 +8,10 @@ TagManager:
   - Dot2
   - Dot3
   - Dot4
+  - Audio
+  - Wall
+  - Pellet_normal
+  - Pellet_power
   layers:
   - Default
   - TransparentFX

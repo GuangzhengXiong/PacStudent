@@ -12,7 +12,7 @@ public class UHDManager : MonoBehaviour
     public TextMeshProUGUI TimeUI;
     public GameObject ScaredTimeUI;
     private int highScore;
-    private int score;
+    public static int score;
     private float time;
     private float scaredTime;
 
