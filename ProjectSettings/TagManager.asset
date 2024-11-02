@@ -12,6 +12,9 @@ TagManager:
   - Wall
   - Pellet_normal
   - Pellet_power
+  - Cherry
+  - Ghost
+  - DeadGhost
   layers:
   - Default
   - TransparentFX

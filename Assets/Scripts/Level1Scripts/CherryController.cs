@@ -27,15 +27,11 @@ public class CherryController : MonoBehaviour
     {
         for (int i = cherries.Count - 1; i >= 0; i--)
         {
-            if (Vector3.Distance(cherries[i].transform.position, PacStudent.position) < 0.5f)
+            if (cherries[i] == null)
             {
-                PacStudentController.playMusicEat = true;
-                UHDManager.score += 100;
-                GameObject c = cherries[i];
                 cherries.RemoveAt(i);
                 cherryX.RemoveAt(i);
                 cherryY.RemoveAt(i);
-                Destroy(c);
                 continue;
             }
             if (cherries[i].transform.position.x == cherryX[i] && cherries[i].transform.position.y == cherryY[i])
