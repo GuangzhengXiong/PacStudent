@@ -12,6 +12,7 @@ public class PacStudentController : MonoBehaviour
     public Tweener tweener;
     public ParticleSystem dust;
     public float speed = 2.0f;
+    public static bool playMusicEat = false;
     private Animator animator;
     private AudioSource[] audioSource;
     private string lastInput;
@@ -46,6 +47,12 @@ public class PacStudentController : MonoBehaviour
             {
                 audioSource[1].clip = PacStudent_eat;
                 audioSource[1].Play();
+            }
+            if(playMusicEat)
+            {
+                audioSource[1].clip = PacStudent_eat;
+                audioSource[1].Play();
+                playMusicEat = false;
             }
             if (Move(lastInput))
             {
@@ -101,7 +108,7 @@ public class PacStudentController : MonoBehaviour
             return false;
         x = x1;
         y = y1;
-        tweener.AddTween(gameObject.transform, LoadMap.getPos(x, y), speed);
+        tweener.AddTween(gameObject.transform, LoadMap.getPos(x, y), 1 / speed);
         return true;
     }
 }

@@ -7360,10 +7360,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1859705985}
   - component: {fileID: 1859705986}
-  - component: {fileID: 1859705987}
   - component: {fileID: 1859705988}
   - component: {fileID: 1859705990}
   - component: {fileID: 1859705991}
+  - component: {fileID: 1859705992}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -7408,24 +7408,6 @@ MonoBehaviour:
   - {fileID: 3722708680444439305, guid: 1e8249640c2b07944ad46345d93bdf34, type: 3}
   Camera: {fileID: 519420031}
   PacStudentController: {fileID: 1916175852}
---- !u!114 &1859705987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859705984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb8c237741491645ac5e2431302f364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundAudio: {fileID: 1395514925}
-  PacStudentAudio: {fileID: 1916175855}
-  Background_game_intro: {fileID: 8300000, guid: 8965812539bc3f543b55e7ca397d9d3d, type: 3}
-  Background_ghosts_normal: {fileID: 8300000, guid: a0941a88aa8f5de4abfa4684a8f5de8d, type: 3}
-  Background_ghosts_scared: {fileID: 8300000, guid: 984cd1e249839084b96776f391055284, type: 3}
-  Background_ghosts_dead: {fileID: 8300000, guid: 1589831527d878b46a7e8bdeede751a2, type: 3}
 --- !u!114 &1859705988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7475,6 +7457,22 @@ MonoBehaviour:
   - {fileID: 1386469469}
   - {fileID: 579109328}
   GhostSpeed: 1
+--- !u!114 &1859705992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859705984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c9073aee3e1a74191219772138e354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweener: {fileID: 1859705990}
+  cherry: {fileID: 1709039081434266968, guid: 73d5f433a06c3314e83477bd9b6992b6, type: 3}
+  PacStudent: {fileID: 1916175854}
+  speed: 5
 --- !u!1 &1916175850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6152761573119759615, guid: 85622a318e4f54f48a3f8f6d234033f1, type: 3}

@@ -19,6 +19,11 @@ public class Tweener : MonoBehaviour
     {
         for (int i = activeTweens.Count - 1; i >= 0; i--)
         {
+            if(activeTweens[i].Target == null)
+            {
+                activeTweens.RemoveAt(i);
+                continue;
+            }
             if (Vector3.Distance(activeTweens[i].Target.position, activeTweens[i].EndPos) > 0.1f)
             {
                 float x = (Time.time - activeTweens[i].StartTime) / activeTweens[i].Duration;
@@ -32,11 +37,11 @@ public class Tweener : MonoBehaviour
         }
     }
 
-    public bool AddTween(Transform targetObject, Vector3 endPos, float speed)
+    public bool AddTween(Transform targetObject, Vector3 endPos, float duration)
     {
         if (TweenExists(targetObject))
             return false;
-        activeTweens.Add(new Tween(targetObject, targetObject.position, endPos, Time.time, 1 / speed));
+        activeTweens.Add(new Tween(targetObject, targetObject.position, endPos, Time.time, duration));
         return true;
     }
 
