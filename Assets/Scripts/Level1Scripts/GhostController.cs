@@ -40,22 +40,22 @@ public class GhostController : MonoBehaviour
         ghostsY = new int[4];
 
         Ghosts[0].position = new Vector3(-1, 1, 0);
-        mapPos = LoadMap.getMapPos(-1, 1);
+        mapPos = LevelGenerator.getMapPos(-1, 1);
         ghostsX[0] = mapPos[0];
         ghostsY[0] = mapPos[1];
 
         Ghosts[1].position = new Vector3(0, 1, 0);
-        mapPos = LoadMap.getMapPos(0, 1);
+        mapPos = LevelGenerator.getMapPos(0, 1);
         ghostsX[1] = mapPos[0];
         ghostsY[1] = mapPos[1];
 
         Ghosts[2].position = new Vector3(-1, -1, 0);
-        mapPos = LoadMap.getMapPos(-1, -1);
+        mapPos = LevelGenerator.getMapPos(-1, -1);
         ghostsX[2] = mapPos[0];
         ghostsY[2] = mapPos[1];
 
         Ghosts[3].position = new Vector3(0, -1, 0);
-        mapPos = LoadMap.getMapPos(0, -1);
+        mapPos = LevelGenerator.getMapPos(0, -1);
         ghostsX[3] = mapPos[0];
         ghostsY[3] = mapPos[1];
 
@@ -106,7 +106,7 @@ public class GhostController : MonoBehaviour
                     animators[i].CrossFade("Ghosts_death", 0);
                     tweener.TweenCancel(Ghosts[i]);
                     tweener.AddTween(Ghosts[i], new Vector3(-1, 1, 0), 5.0f);
-                    int[] mapPos = LoadMap.getMapPos(-1, 1);
+                    int[] mapPos = LevelGenerator.getMapPos(-1, 1);
                     ghostsX[i] = mapPos[0];
                     ghostsY[i] = mapPos[1];
                 }
@@ -184,7 +184,7 @@ public class GhostController : MonoBehaviour
             target = moveAvailablity(dir, index);
             if (target.Length == 2)
             {
-                temp = LoadMap.getPos(target[0], target[1]);
+                temp = LevelGenerator.getPos(target[0], target[1]);
                 targetPos2.Add(temp);
                 targetMapPos2.Add(target);
                 dir2.Add(dir);
@@ -218,7 +218,7 @@ public class GhostController : MonoBehaviour
             ghostsX[index] = target[0];
             ghostsY[index] = target[1];
             ghostsDir[index] = (ghostsDir[index] + 2) % 4;
-            tweener.AddTween(Ghosts[index], LoadMap.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
+            tweener.AddTween(Ghosts[index], LevelGenerator.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
         }
     }
 
@@ -244,7 +244,7 @@ public class GhostController : MonoBehaviour
             target = moveAvailablity(dir, index);
             if (target.Length == 2)
             {
-                temp = LoadMap.getPos(target[0], target[1]);
+                temp = LevelGenerator.getPos(target[0], target[1]);
                 targetPos2.Add(temp);
                 targetMapPos2.Add(target);
                 dir2.Add(dir);
@@ -278,7 +278,7 @@ public class GhostController : MonoBehaviour
             ghostsX[index] = target[0];
             ghostsY[index] = target[1];
             ghostsDir[index] = (ghostsDir[index] + 2) % 4;
-            tweener.AddTween(Ghosts[index], LoadMap.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
+            tweener.AddTween(Ghosts[index], LevelGenerator.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
         }
     }
 
@@ -299,7 +299,7 @@ public class GhostController : MonoBehaviour
                 ghostsX[index] = target[0];
                 ghostsY[index] = target[1];
                 ghostsDir[index] = dir;
-                tweener.AddTween(Ghosts[index], LoadMap.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
+                tweener.AddTween(Ghosts[index], LevelGenerator.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
                 return;
             }
         }
@@ -307,7 +307,7 @@ public class GhostController : MonoBehaviour
         ghostsX[index] = target[0];
         ghostsY[index] = target[1];
         ghostsDir[index] = (ghostsDir[index] + 2) % 4;
-        tweener.AddTween(Ghosts[index], LoadMap.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
+        tweener.AddTween(Ghosts[index], LevelGenerator.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
     }
 
 
@@ -327,7 +327,7 @@ public class GhostController : MonoBehaviour
                 ghostsX[index] = target[0];
                 ghostsY[index] = target[1];
                 ghostsDir[index] = dir;
-                tweener.AddTween(Ghosts[index], LoadMap.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
+                tweener.AddTween(Ghosts[index], LevelGenerator.getPos(ghostsX[index], ghostsY[index]), 1 / speed);
                 break;
             }
         }
@@ -345,7 +345,7 @@ public class GhostController : MonoBehaviour
             case 3: x = ghostsX[index]; y = ghostsY[index] - 1; break;
             default: x = 0; y = 0; break;
         }
-        if (LoadMap.ifAvailable(x, y) == -1)
+        if (LevelGenerator.ifAvailable(x, y) == -1)
             return new int[] {x, y};
         return Array.Empty<int>();
     }

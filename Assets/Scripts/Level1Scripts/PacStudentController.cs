@@ -25,7 +25,7 @@ public class PacStudentController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = LoadMap.getPos(x, y);
+        gameObject.transform.position = LevelGenerator.getPos(x, y);
         animator = GetComponent<Animator>();
         audioSource = GetComponents<AudioSource>();
         lastInput = "";
@@ -106,18 +106,18 @@ public class PacStudentController : MonoBehaviour
             case "left": x1 = x - 1; y1 = y; break;
             default: return false;
         }
-        result = LoadMap.ifAvailable(x1, y1);
+        result = LevelGenerator.ifAvailable(x1, y1);
         if (result == -2)
             return false;
         y = y1;
         if (result >= 0)
         {
             x = result;
-            gameObject.transform.position = LoadMap.getPos(x, y);
+            gameObject.transform.position = LevelGenerator.getPos(x, y);
             return true;
         }
         x = x1;
-        tweener.AddTween(gameObject.transform, LoadMap.getPos(x, y), 1 / speed);
+        tweener.AddTween(gameObject.transform, LevelGenerator.getPos(x, y), 1 / speed);
         return true;
     }
 
@@ -134,7 +134,7 @@ public class PacStudentController : MonoBehaviour
             audioSource[1].clip = PacStudent_eat;
             audioSource[1].Play();
             Destroy(collision.gameObject);
-            LoadMap.pelletNum--;
+            LevelGenerator.pelletNum--;
         }
         else if (collision.tag == "Pellet_power")
         {
@@ -144,7 +144,7 @@ public class PacStudentController : MonoBehaviour
             UHDManager.isGhostsScaredStart = true;
             BackgroundMusicManager.isGhostsScaredStart = true;
             GhostController.isScaredStart = true;
-            LoadMap.pelletNum--;
+            LevelGenerator.pelletNum--;
         }
         else if (collision.tag == "Cherry")
         {
@@ -179,7 +179,7 @@ public class PacStudentController : MonoBehaviour
             audioSource[1].clip = PacStudent_eat;
             audioSource[1].Play();
             Destroy(collision.gameObject);
-            LoadMap.pelletNum--;
+            LevelGenerator.pelletNum--;
         }
     }
 
@@ -205,6 +205,6 @@ public class PacStudentController : MonoBehaviour
 
         x = 1;
         y = 1;
-        gameObject.transform.position = LoadMap.getPos(x, y);
+        gameObject.transform.position = LevelGenerator.getPos(x, y);
     }
 }
