@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dot1
+  - Dot2
+  - Dot3
+  - Dot4
+  - Audio
+  - Wall
+  - Pellet_normal
+  - Pellet_power
+  - Cherry
+  - Ghost
+  - DeadGhost
   layers:
   - Default
   - TransparentFX
