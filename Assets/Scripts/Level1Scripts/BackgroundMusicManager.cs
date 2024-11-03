@@ -12,7 +12,7 @@ public class BackgroundMusicManager : MonoBehaviour
     private AudioSource audioSource;
     public static bool isGhostsScaredStart = false;
     public static bool isGhostsScaredEnd = false;
-    public static bool isGhostsDead = false;
+    public static bool isghostsDead = false;
     private bool ifPlayingDead = false;
     public static bool isGhostsRevive = false;
     private AudioClip lastClip;
@@ -46,9 +46,9 @@ public class BackgroundMusicManager : MonoBehaviour
                 audioSource.clip = Background_ghosts_normal;
             }
         }
-        if (isGhostsDead)
+        if (isghostsDead)
         {
-            isGhostsDead = false;
+            isghostsDead = false;
             if (!ifPlayingDead)
             {
                 lastClip = audioSource.clip;
@@ -60,6 +60,7 @@ public class BackgroundMusicManager : MonoBehaviour
         if (isGhostsRevive)
         {
             isGhostsRevive = false;
+            ifPlayingDead = false;
             audioSource.Stop();
             audioSource.clip = lastClip;
         }

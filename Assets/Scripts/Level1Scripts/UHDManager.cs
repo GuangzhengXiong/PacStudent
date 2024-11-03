@@ -98,6 +98,7 @@ public class UHDManager : MonoBehaviour
         ifStart = false;
         BackgroundMusicManager.ifStart = false;
         PacStudentController.ifStart = false;
+        GhostController.ifStart = false;
 
         if (score > highScore || (score == highScore && time < highScoreTime))
         {
@@ -131,6 +132,7 @@ public class UHDManager : MonoBehaviour
         ifStart = true;
         BackgroundMusicManager.ifStart = true;
         PacStudentController.ifStart = true;
+        GhostController.ifStart = true;
         Time.timeScale = 1.0f;
     }
 

@@ -161,7 +161,7 @@ public class PacStudentController : MonoBehaviour
                 UHDManager.score += 300;
                 animatorCollision.SetBool("death", true);
                 collision.tag = "DeadGhost";
-                BackgroundMusicManager.isGhostsDead = true;
+                BackgroundMusicManager.isghostsDead = true;
             }
             else
             {

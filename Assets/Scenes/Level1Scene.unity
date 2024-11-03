@@ -12663,12 +12663,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fa6eb36dffa204087c50ea9c87023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PacStudent: {fileID: 1916175854}
   Ghosts:
   - {fileID: 714130502}
   - {fileID: 13139389}
   - {fileID: 1386469469}
   - {fileID: 579109328}
-  GhostSpeed: 1
+  tweener: {fileID: 1859705990}
+  speed: 2
 --- !u!114 &1859705992
 MonoBehaviour:
   m_ObjectHideFlags: 0

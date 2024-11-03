@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class LoadMap : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class LoadMap : MonoBehaviour
     public Animator PacStudentController;
     private static int[,] map;
     private static int row, col;
+    private static int spawnLeft, spawnRight, spawnTop, spawnBottom;
     public static int pelletNum = 0;
 
     int[,] levelMap =
@@ -168,9 +171,16 @@ public class LoadMap : MonoBehaviour
                 }
 
         Camera.orthographicSize = row / 2 + 3;
+
+        spawnLeft = col / 2 - 1;
+        while (map[row / 2, spawnLeft - 1] == 0) spawnLeft--;
+        spawnTop = row / 2;
+        while (map[spawnTop - 1, spawnLeft] == 0) spawnTop--;
+        spawnRight = col - spawnLeft - 1;
+        spawnBottom = row - spawnTop - 1;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (pelletNum == 0)
@@ -199,7 +209,11 @@ public class LoadMap : MonoBehaviour
         if (x >= col)
             return 0;
         if (map[y, x] == 0)
+        {
+            if (x >= spawnLeft && x <= spawnRight && y >= spawnTop && y <= spawnBottom)
+                return -3;
             return -1;
+        }
         else
             return -2;
     }
