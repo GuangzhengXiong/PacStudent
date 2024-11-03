@@ -20,6 +20,7 @@ public class PacStudentController : MonoBehaviour
     private string lastInput;
     private string currentInput;
     private int x = 1, y = 1;
+    public static bool ifStart = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,11 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!ifStart)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
             lastInput = "up";
         if (Input.GetKeyDown(KeyCode.D))
@@ -118,12 +124,17 @@ public class PacStudentController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!ifStart)
+        {
+            return;
+        }
         if (collision.tag == "Pellet_normal")
         {
             UHDManager.score += 10;
             audioSource[1].clip = PacStudent_eat;
             audioSource[1].Play();
             Destroy(collision.gameObject);
+            LoadMap.pelletNum--;
         }
         else if (collision.tag == "Pellet_power")
         {
@@ -133,6 +144,7 @@ public class PacStudentController : MonoBehaviour
             UHDManager.isGhostsScaredStart = true;
             BackgroundMusicManager.isGhostsScaredStart = true;
             GhostController.isScaredStart = true;
+            LoadMap.pelletNum--;
         }
         else if (collision.tag == "Cherry")
         {
@@ -155,6 +167,19 @@ public class PacStudentController : MonoBehaviour
             {
                 StartCoroutine(death());
             }
+        }
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Pellet_normal" && ifStart)
+        {
+            UHDManager.score += 10;
+            audioSource[1].clip = PacStudent_eat;
+            audioSource[1].Play();
+            Destroy(collision.gameObject);
+            LoadMap.pelletNum--;
         }
     }
 

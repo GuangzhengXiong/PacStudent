@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class UHDManager : MonoBehaviour
 {
-    public GameObject[] Lifes;
-    public TextMeshProUGUI ScoreUI;
-    public TextMeshProUGUI TimeUI;
-    public GameObject ScaredTimeUIObject;
+    [SerializeField] private GameObject[] Lifes;
+    [SerializeField] private TextMeshProUGUI ScoreUI;
+    [SerializeField] private TextMeshProUGUI TimeUI;
+    [SerializeField] private GameObject ScaredTimeUIObject;
     private TextMeshProUGUI ScaredTimeUI;
-    private int highScore;
+    [SerializeField] private GameObject CueUIObject;
+    private TextMeshProUGUI CueUI;
     public static int score;
     private float time;
     private int life = 2;
@@ -20,21 +21,27 @@ public class UHDManager : MonoBehaviour
     public static bool isGhostsScaredStart = false;
     private bool isRecovering = false;
     public static bool ifLostLife = false;
+    public static bool ifGameOver = false;
+    private bool ifStart = false;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         score = 0;
         time = 0;
         scaredTime = 0;
         ScaredTimeUI = ScaredTimeUIObject.GetComponent<TextMeshProUGUI>();
         ScaredTimeUIObject.SetActive(false);
+        CueUI = CueUIObject.GetComponent<TextMeshProUGUI>();
+        Time.timeScale = 0;
+        StartCoroutine(startGame());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        time += Time.deltaTime;
+        if (ifStart)
+            time += Time.deltaTime;
         ScoreUI.text = "Score: " + score.ToString();
         TimeUI.text = "Time: " + string.Format("{0:00}:{1:00}:{2:00}", Mathf.FloorToInt(time / 60), Mathf.FloorToInt(time % 60), Mathf.FloorToInt((time * 100) % 100));
         if (isGhostsScaredStart)
@@ -60,10 +67,14 @@ public class UHDManager : MonoBehaviour
                 ScaredTimeUIObject.SetActive(false);
             }
         }
-        if(ifLostLife)
+        if (ifLostLife)
         {
             ifLostLife = false;
             lostLife();
+        }
+        if (ifGameOver)
+        {
+            gameOver();
         }
     }
 
@@ -83,11 +94,54 @@ public class UHDManager : MonoBehaviour
     {
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         float highScoreTime = PlayerPrefs.GetFloat("Time", 0);
-        if (score > highScore || score == highScore && time < highScoreTime)
+        Time.timeScale = 0;
+        ifStart = false;
+        BackgroundMusicManager.ifStart = false;
+        PacStudentController.ifStart = false;
+
+        if (score > highScore || (score == highScore && time < highScoreTime))
         {
             PlayerPrefs.SetInt("HighScore", score);
             PlayerPrefs.SetFloat("Time", time);
             PlayerPrefs.Save();
         }
+        StartCoroutine(endGame());
+    }
+
+
+    IEnumerator startGame()
+    {
+        CueUI.text = "3"; 
+
+        yield return new WaitForSecondsRealtime(1);
+
+        CueUI.text = "2";
+
+        yield return new WaitForSecondsRealtime(1);
+
+        CueUI.text = "1";
+
+        yield return new WaitForSecondsRealtime(1);
+
+        CueUI.text = "GO!";
+
+        yield return new WaitForSecondsRealtime(1);
+
+        CueUIObject.SetActive(false);
+        ifStart = true;
+        BackgroundMusicManager.ifStart = true;
+        PacStudentController.ifStart = true;
+        Time.timeScale = 1.0f;
+    }
+
+
+    IEnumerator endGame()
+    {
+        CueUIObject.SetActive(true);
+        CueUI.text = "Game Over";
+
+        yield return new WaitForSecondsRealtime(3);
+
+        LoadStartScene();
     }
 }

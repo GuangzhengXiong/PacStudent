@@ -16,12 +16,14 @@ public class BackgroundMusicManager : MonoBehaviour
     private bool ifPlayingDead = false;
     public static bool isGhostsRevive = false;
     private AudioClip lastClip;
+    public static bool ifStart = false;
 
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = Background_ghosts_normal;
+        Time.timeScale = 0;
     }
 
 
@@ -61,7 +63,7 @@ public class BackgroundMusicManager : MonoBehaviour
             audioSource.Stop();
             audioSource.clip = lastClip;
         }
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && ifStart)
         {
             audioSource.Play();
         }

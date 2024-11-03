@@ -10,6 +10,7 @@ public class LoadMap : MonoBehaviour
     public Animator PacStudentController;
     private static int[,] map;
     private static int row, col;
+    public static int pelletNum = 0;
 
     int[,] levelMap =
         {
@@ -140,10 +141,13 @@ public class LoadMap : MonoBehaviour
                         break;
                     case 5:
                         GameObject.Instantiate(sprite[4], getPos(j, i), new Quaternion());
+                        pelletNum++;
                         map[i, j] = 0;
                         break;
                     case 6:
                         GameObject.Instantiate(sprite[5], getPos(j, i), new Quaternion());
+                        pelletNum++;
+                        map[i, j] = 0;
                         break;
                     case 7:
                         if (j > 0 && (map[i, j - 1] == 1 || map[i, j - 1] == 2 || map[i, j - 1] == 7) && j + 1 < col && (map[i, j + 1] == 1 || map[i, j + 1] == 2 || map[i, j + 1] == 7))
@@ -164,20 +168,13 @@ public class LoadMap : MonoBehaviour
                 }
 
         Camera.orthographicSize = row / 2 + 3;
-
-        for (i = 0; i < row; i++)
-            for (j = 0; j < col; j++)
-            {
-                if (map[i, j] > 0 && map[i, j] < 5)
-                    map[i, j] = 1;
-                else
-                    map[i, j] = 0;
-            }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pelletNum == 0)
+            UHDManager.ifGameOver = true;
     }
 
     public static Vector3 getPos(int x, int y)
